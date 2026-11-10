@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111719">
+    <title>PitWall AI — Race strategy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#" aria-label="PitWall AI home">
+          <span class="brand-mark"><span></span><span></span><span></span></span>
+          <span class="brand-name">pitwall<span>AI</span></span>
+        </a>
+
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="primary-nav" aria-label="Main navigation">
+          <a class="nav-link active" href="#strategy"><span class="nav-icon">⌁</span><span>Strategy planner</span><span class="nav-count">01</span></a>
+          <a class="nav-link" href="#race-context"><span class="nav-icon">◷</span><span>Race calendar</span></a>
+          <a class="nav-link" href="#comparison"><span class="nav-icon">▤</span><span>Strategy library</span></a>
+          <a class="nav-link" href="#model"><span class="nav-icon">⌘</span><span>Model lab</span><span class="nav-tag">BETA</span></a>
+          <a class="nav-link" href="#roadmap"><span class="nav-icon">↗</span><span>Roadmap</span></a>
+        </nav>
+
+        <div class="sidebar-divider"></div>
+        <div class="workspace-label">YOUR GARAGE</div>
+        <button class="garage-item" type="button"><span class="team-dot ferrari"></span>Scuderia Ferrari<span class="chevron">⌄</span></button>
+
+        <div class="sidebar-bottom">
+          <div class="data-status"><span class="status-pulse"></span><span><b>DEMO ENVIRONMENT</b><small>Sample strategy data</small></span></div>
+          <button class="profile-button" type="button">
+            <span class="avatar">AR</span>
+            <span class="profile-copy"><b>Alex Rivera</b><small>Race analyst</small></span>
+            <span class="profile-more">···</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Workspace</span><span class="crumb-slash">/</span><b>Strategy planner</b></div>
+          <div class="topbar-right">
+            <span class="demo-badge"><span></span> DEMO DATA</span>
+            <button class="icon-button" aria-label="Notifications" type="button">♧<i></i></button>
+            <button class="help-button" type="button" aria-label="Help">?</button>
+          </div>
+        </header>
+
+        <div class="page-wrap" id="strategy">
+          <section class="page-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span> RACE INTELLIGENCE <span class="eyebrow-muted">/ 2025 SEASON</span></div>
+              <h1>Strategy planner<span class="heading-period">.</span></h1>
+              <p>Find the fastest way to the flag. Model every stint before the lights go out.</p>
+            </div>
+            <button class="text-button" id="reset-button" type="button"><span>↻</span> Reset scenario</button>
+          </section>
+
+          <section class="scenario-panel" aria-labelledby="scenario-title">
+            <div class="scenario-head">
+              <div class="scenario-title-wrap"><span class="section-index">01</span><div><h2 id="scenario-title">Build your race scenario</h2><p>Set the conditions. We’ll take it from here.</p></div></div>
+              <div class="scenario-meta"><span class="data-dot"></span> Historical baseline <span class="meta-separator">·</span> Model v1.4</div>
+            </div>
+            <div class="scenario-controls">
+              <label class="field">
+                <span class="field-label">GRAND PRIX</span>
+                <span class="select-wrap"><select id="circuit-select"><option value="silverstone">British Grand Prix</option><option value="monza">Italian Grand Prix</option><option value="monaco">Monaco Grand Prix</option><option value="spa">Belgian Grand Prix</option><option value="bahrain">Bahrain Grand Prix</option></select><span class="select-chevron">⌄</span></span>
+              </label>
+              <label class="field">
+                <span class="field-label">DRIVER</span>
+                <span class="select-wrap"><select id="driver-select"><option value="leclerc">Charles Leclerc</option><option value="hamilton">Lewis Hamilton</option><option value="sainz">Carlos Sainz</option><option value="norris">Lando Norris</option><option value="verstappen">Max Verstappen</option></select><span class="select-chevron">⌄</span></span>
+              </label>
+              <label class="field field-season">
+                <span class="field-label">SEASON</span>
+                <span class="select-wrap"><select id="season-select"><option>2025</option><option>2024</option><option>2023</option></select><span class="select-chevron">⌄</span></span>
+              </label>
+              <label class="field field-weather">
+                <span class="field-label">TRACK CONDITIONS</span>
+                <span class="select-wrap"><select id="weather-select"><option value="dry">Dry · 24°C</option><option value="hot">Hot · 32°C</option><option value="mixed">Changeable · 19°C</option></select><span class="select-chevron">⌄</span></span>
+              </label>
+              <button class="run-button" id="run-button" type="button"><span class="run-icon">▶</span><span>Run analysis</span><span class="button-arrow">↗</span></button>
+            </div>
+          </section>
+
+          <div class="results-heading">
+            <div class="results-title"><span class="section-index">02</span><div><h2>Race outlook</h2><p id="race-subtitle">Silverstone Circuit <span>·</span> 52 laps <span>·</span> 5.891 km</p></div></div>
+            <div class="analysis-status" id="analysis-status"><span class="status-pulse"></span><span>ANALYSIS READY</span></div>
+          </div>
+
+          <section class="top-grid">
+            <article class="recommendation-card">
+              <div class="recommendation-top">
+                <div class="recommend-label"><span class="spark">✳</span> ENGINEER’S PICK</div>
+                <button class="more-button" type="button" aria-label="More recommendation options">···</button>
+              </div>
+              <div class="recommend-name"><h2>One-stop undercut</h2><span class="pick-badge">BEST BALANCE</span></div>
+              <div class="strategy-timeline" aria-label="Recommended strategy: medium tyre for 24 laps, then hard tyre for 28 laps">
+                <div class="stint stint-medium"><span class="tyre-c">M</span><span class="stint-copy"><b>MEDIUM</b><small>24 LAPS</small></span><span class="stint-line"></span></div>
+                <div class="pit-marker"><span>BOX</span><b>24</b></div>
+                <div class="stint stint-hard"><span class="tyre-c">H</span><span class="stint-copy"><b>HARD</b><small>28 LAPS</small></span><span class="stint-line"></span></div>
+                <div class="finish-marker"><span>FINISH</span><b>52</b></div>
+              </div>
+              <div class="recommendation-bottom">
+                <div class="recommend-reason"><span class="reason-icon">↗</span><span>Strong pace through clean air, with a flexible pit window for a Safety Car.</span></div>
+                <button class="details-button" type="button" id="details-button">Strategy details <span>→</span></button>
+              </div>
+            </article>
+
+            <article class="context-card" id="race-context">
+              <div class="card-heading"><div><span class="card-kicker">RACE CONTEXT</span><h3 id="context-circuit">Silverstone</h3></div><span class="flag">🇬🇧</span></div>
+              <div class="circuit-art">
+                <svg viewBox="0 0 300 108" role="img" aria-label="Stylized Silverstone circuit map">
+                  <path class="track-shadow" d="M37 68 L48 39 Q51 31 64 34 L80 40 L99 25 Q106 18 115 24 L133 38 L158 31 Q165 29 171 35 L186 48 L212 43 Q220 42 225 49 L236 63 L220 79 L191 82 L176 68 L152 77 L134 70 L116 83 L99 72 L77 84 L58 74 Z"/>
+                  <path class="track-line" d="M37 68 L48 39 Q51 31 64 34 L80 40 L99 25 Q106 18 115 24 L133 38 L158 31 Q165 29 171 35 L186 48 L212 43 Q220 42 225 49 L236 63 L220 79 L191 82 L176 68 L152 77 L134 70 L116 83 L99 72 L77 84 L58 74 Z"/>
+                  <circle cx="37" cy="68" r="3" class="track-start"/>
+                  <text x="27" y="91">START / FINISH</text>
+                </svg>
+                <span class="circuit-corner">SILVERSTONE · GP</span>
+              </div>
+              <div class="context-stats">
+                <div><span>TRACK TEMP</span><b id="track-temp">24°<small>C</small></b></div>
+                <div><span>RAIN CHANCE</span><b id="rain-chance">12<small>%</small></b></div>
+                <div><span>PIT LOSS</span><b id="pit-loss">22.4<small>s</small></b></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="metrics-row" aria-label="Strategy performance metrics">
+            <article class="metric-card"><div class="metric-label">PROJECTED RACE TIME <span class="metric-info" title="Illustrative model output">i</span></div><div class="metric-value" id="race-time">1:31:42<span>.3</span></div><div class="metric-foot"><span class="positive">↓ 8.6s</span> vs. two-stop baseline</div><div class="metric-sparkline green"><svg viewBox="0 0 100 28" aria-hidden="true"><path d="M1 22 C12 20 12 13 24 16 S37 21 47 12 S61 15 70 8 S84 11 99 3"/></svg></div></article>
+            <article class="metric-card"><div class="metric-label">TOP 5 PROBABILITY <span class="metric-info" title="Illustrative model output">i</span></div><div class="metric-value">67<span class="unit">%</span></div><div class="metric-foot"><span class="neutral">+ 12 pts</span> vs. field average</div><div class="metric-sparkline orange"><svg viewBox="0 0 100 28" aria-hidden="true"><path d="M1 23 C12 23 14 15 25 18 S40 19 48 10 S60 15 71 11 S83 5 99 4"/></svg></div></article>
+            <article class="metric-card"><div class="metric-label">MODEL CONFIDENCE <span class="metric-info" title="Illustrative model output">i</span></div><div class="metric-value" id="confidence">78<span class="unit">%</span></div><div class="metric-foot"><span class="confidence-dot"></span> Based on 3,200 race simulations</div><div class="confidence-bar"><span></span></div></article>
+            <article class="metric-card metric-risk"><div class="metric-label">STRATEGY RISK <span class="metric-info" title="Illustrative model output">i</span></div><div class="risk-value"><span class="risk-indicator"></span><b>LOW–MODERATE</b></div><div class="metric-foot">Safety Car sensitivity <span class="risk-score">0.24</span></div><div class="risk-gauge"><span></span></div></article>
+          </section>
+
+          <section class="analysis-grid">
+            <article class="comparison-card" id="comparison">
+              <div class="panel-heading">
+                <div><div class="panel-title-row"><span class="section-index">03</span><h2>Strategy comparison</h2></div><p>Ranked by expected race time, adjusted for risk.</p></div>
+                <button class="filter-button" type="button" id="sort-button">Best balance <span>⌄</span></button>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>RANK</th><th>STRATEGY</th><th>PIT LAP</th><th>RACE TIME</th><th>TOP 5</th><th>RISK</th><th></th></tr></thead>
+                  <tbody id="strategy-rows">
+                    <tr class="recommended-row" data-strategy="medium-hard"><td><span class="rank rank-one">01</span></td><td><span class="table-strategy"><i class="compound-dot medium-dot"></i><b>M</b><span>→</span><i class="compound-dot hard-dot"></i><b>H</b><em>RECOMMENDED</em></span></td><td>Lap 24</td><td class="table-time">1:31:42.3</td><td><span class="probability">67%</span></td><td><span class="risk-label low">LOW</span></td><td><button class="row-arrow selected-arrow" aria-label="View medium to hard strategy" type="button">↗</button></td></tr>
+                    <tr data-strategy="hard-medium"><td><span class="rank">02</span></td><td><span class="table-strategy"><i class="compound-dot hard-dot"></i><b>H</b><span>→</span><i class="compound-dot medium-dot"></i><b>M</b></span></td><td>Lap 28</td><td class="table-time">1:31:46.8</td><td><span class="probability">61%</span></td><td><span class="risk-label medium">MED</span></td><td><button class="row-arrow" aria-label="View hard to medium strategy" type="button">↗</button></td></tr>
+                    <tr data-strategy="medium-medium-hard"><td><span class="rank">03</span></td><td><span class="table-strategy"><i class="compound-dot medium-dot"></i><b>M</b><span>→</span><i class="compound-dot medium-dot"></i><b>M</b><span>→</span><i class="compound-dot hard-dot"></i><b>H</b></span></td><td>17 / 35</td><td class="table-time">1:31:50.1</td><td><span class="probability">58%</span></td><td><span class="risk-label medium">MED</span></td><td><button class="row-arrow" aria-label="View medium to medium to hard strategy" type="button">↗</button></td></tr>
+                    <tr data-strategy="soft-medium-hard"><td><span class="rank">04</span></td><td><span class="table-strategy"><i class="compound-dot soft-dot"></i><b>S</b><span>→</span><i class="compound-dot medium-dot"></i><b>M</b><span>→</span><i class="compound-dot hard-dot"></i><b>H</b></span></td><td>13 / 34</td><td class="table-time">1:31:57.6</td><td><span class="probability">53%</span></td><td><span class="risk-label high">HIGH</span></td><td><button class="row-arrow" aria-label="View soft to medium to hard strategy" type="button">↗</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="table-footer"><span><span class="footer-dot"></span> 4 strategies evaluated</span><button type="button" id="all-strategies">View all strategies <span>→</span></button></div>
+            </article>
+
+            <article class="degradation-card" id="model">
+              <div class="degradation-heading"><div><div class="panel-title-row"><span class="section-index">04</span><h2>Tyre degradation</h2></div><p>Projected pace loss by compound</p></div><button class="chart-menu" aria-label="Chart options" type="button">···</button></div>
+              <div class="chart-legend"><span><i class="legend-line line-medium"></i>MEDIUM</span><span><i class="legend-line line-hard"></i>HARD</span><span><i class="legend-line line-soft"></i>SOFT</span></div>
+              <div class="chart-area">
+                <div class="chart-y-labels"><span>+1.2s</span><span>+0.8s</span><span>+0.4s</span><span>0.0s</span></div>
+                <svg class="degradation-chart" viewBox="0 0 320 142" role="img" aria-label="Projected tyre degradation chart">
+                  <defs><linearGradient id="medium-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#ff7a56" stop-opacity=".16"/><stop offset="100%" stop-color="#ff7a56" stop-opacity="0"/></linearGradient></defs>
+                  <path class="grid-line" d="M0 10H320 M0 48H320 M0 86H320 M0 124H320"/>
+                  <path class="area-medium" d="M0 112 C30 108 34 99 61 98 S94 82 122 82 S151 67 183 66 S216 48 242 47 S279 26 320 18 L320 124 L0 124Z"/>
+                  <path class="chart-line medium-line" d="M0 112 C30 108 34 99 61 98 S94 82 122 82 S151 67 183 66 S216 48 242 47 S279 26 320 18"/>
+                  <path class="chart-line hard-line" d="M0 118 C32 115 41 110 64 109 S99 99 124 98 S151 89 184 88 S217 77 247 76 S282 64 320 60"/>
+                  <path class="chart-line soft-line" d="M0 104 C24 99 32 91 55 88 S80 73 105 70 S131 55 154 52 S173 33 197 31 S218 18 240 15 S266 8 282 6"/>
+                  <circle class="chart-point medium-point" cx="242" cy="47" r="3.5"/>
+                </svg>
+                <div class="chart-x-labels"><span>0</span><span>10</span><span>20</span><span>30</span><span>40</span><span>LAP</span></div>
+              </div>
+              <div class="chart-insight"><span class="insight-icon">✳</span><span><b>Medium holds its window</b> through lap 24 in current conditions.</span></div>
+            </article>
+          </section>
+
+          <section class="agent-bar" aria-label="Analysis pipeline">
+            <div class="agent-heading"><span class="agent-orbit">✳</span><span><b>THE PIT WALL</b><small>Analysis pipeline</small></span></div>
+            <div class="agent-steps" id="agent-steps">
+              <span class="agent-step complete"><i>✓</i> Race data loaded</span><span class="step-connector"></span>
+              <span class="agent-step complete"><i>✓</i> Tyre model ready</span><span class="step-connector"></span>
+              <span class="agent-step complete"><i>✓</i> 3,200 scenarios run</span><span class="step-connector"></span>
+              <span class="agent-step complete"><i>✓</i> Risk adjusted</span><span class="step-connector"></span>
+              <span class="agent-step complete"><i>✓</i> Recommendation set</span>
+            </div>
+            <button class="pipeline-info" type="button" title="This demo shows pipeline status, not private reasoning">i</button>
+          </section>
+
+          <section class="roadmap-section" id="roadmap" aria-labelledby="roadmap-title">
+            <div class="roadmap-heading">
+              <div>
+                <div class="eyebrow"><span class="eyebrow-line"></span> WHAT’S NEXT</div>
+                <h2 id="roadmap-title">From demo to race-day decisions<span class="heading-period">.</span></h2>
+                <p>A staged build plan. Each milestone earns the next layer of intelligence.</p>
+              </div>
+              <a class="roadmap-link" href="FUTURE_ROADMAP.md" target="_blank" rel="noopener">Full enhancement plan <span>↗</span></a>
+            </div>
+            <div class="roadmap-progress">
+              <span class="progress-kicker">PRODUCT JOURNEY</span>
+              <div class="progress-track" aria-label="The UI prototype is ready; real-data and strategy-engine phases are planned"><span></span></div>
+              <span class="progress-label"><b>UI PROTOTYPE</b><i>READY</i><span>·</span><b>REAL-DATA ENGINE</b><i class="planned-label">NEXT</i></span>
+            </div>
+            <div class="roadmap-grid">
+              <article class="roadmap-card roadmap-next">
+                <div class="roadmap-card-top"><span class="roadmap-number">01</span><span class="roadmap-state">NEXT UP</span></div>
+                <h3>Connect race data</h3>
+                <p>Ingest and cache FastF1 sessions. Normalize laps, stints, compounds, and weather.</p>
+                <div class="roadmap-foot"><span>DATA FOUNDATION</span><span>→</span></div>
+              </article>
+              <article class="roadmap-card">
+                <div class="roadmap-card-top"><span class="roadmap-number">02</span><span class="roadmap-state">PLANNED</span></div>
+                <h3>Learn tyre pace</h3>
+                <p>Train a baseline degradation model and validate on held-out races without leakage.</p>
+                <div class="roadmap-foot"><span>MODEL + EVALUATION</span><span>→</span></div>
+              </article>
+              <article class="roadmap-card">
+                <div class="roadmap-card-top"><span class="roadmap-number">03</span><span class="roadmap-state">PLANNED</span></div>
+                <h3>Simulate the race</h3>
+                <p>Generate rule-compliant strategies, model pit loss, and rank pace against risk.</p>
+                <div class="roadmap-foot"><span>SIMULATOR + OPTIMIZER</span><span>→</span></div>
+              </article>
+              <article class="roadmap-card">
+                <div class="roadmap-card-top"><span class="roadmap-number">04</span><span class="roadmap-state">PLANNED</span></div>
+                <h3>Quantify uncertainty</h3>
+                <p>Run seeded scenarios and backtest estimates before showing race probabilities.</p>
+                <div class="roadmap-foot"><span>MONTE CARLO + BACKTEST</span><span>→</span></div>
+              </article>
+              <article class="roadmap-card">
+                <div class="roadmap-card-top"><span class="roadmap-number">05</span><span class="roadmap-state">PLANNED</span></div>
+                <h3>Explain with evidence</h3>
+                <p>Connect tested analysis tools to structured agent recommendations and MCP.</p>
+                <div class="roadmap-foot"><span>AGENTS + MCP</span><span>→</span></div>
+              </article>
+              <article class="roadmap-card roadmap-later">
+                <div class="roadmap-card-top"><span class="roadmap-number">06</span><span class="roadmap-state">LATER</span></div>
+                <h3>Prepare for race day</h3>
+                <p>Deploy a tested app/API, then explore live timing and human-confirmed replanning.</p>
+                <div class="roadmap-foot"><span>PRODUCTIZE + LIVE</span><span>→</span></div>
+              </article>
+            </div>
+            <div class="roadmap-note"><span class="note-icon">i</span><span><b>Trust before speed.</b> This dashboard currently uses illustrative demo values. Real recommendations come only after the data, model, simulator, and backtest milestones are complete.</span></div>
+          </section>
+
+          <footer class="page-footer"><span>© 2025 PITWALL AI <span class="footer-divider">/</span> BUILT FOR THE LONG GAME</span><span>Predictions are illustrative · Not affiliated with Formula 1®</span></footer>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

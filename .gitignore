@@ -1,0 +1,32 @@
+# Environment and credentials
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# FastF1 cache and generated data
+cache/
+data/cache/
+data/processed/
+*.parquet
+*.pkl
+*.joblib
+*.model
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and test artifacts
+*.log
+.pytest_cache/
+.coverage
+htmlcov/
